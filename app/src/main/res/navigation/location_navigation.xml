@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/location_navigation"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.ishak.locationproject.View.FeedFragment"
+        android:label="fragment_feed"
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_feedFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.ishak.locationproject.View.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+        <argument
+            android:name="longitude"
+            app:argType="float"
+            android:defaultValue="0" />
+        <argument
+            android:name="latitude"
+            app:argType="float"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
